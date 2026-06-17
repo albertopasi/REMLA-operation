@@ -1,3 +1,37 @@
+<div align="center">
+  <h1>⚙️ REMLA Operations: MLOps & Infrastructure</h1>
+  <p><i>The central operational hub for orchestrating, deploying, and monitoring a distributed Machine Learning pipeline.</i></p>
+
+  <p>
+    <img src="https://img.shields.io/badge/Kubernetes-326CE5.svg?logo=kubernetes&logoColor=white" alt="Kubernetes" />
+    <img src="https://img.shields.io/badge/Helm-0F1689.svg?logo=helm&logoColor=white" alt="Helm" />
+    <img src="https://img.shields.io/badge/Ansible-EE0000.svg?logo=ansible&logoColor=white" alt="Ansible" />
+    <img src="https://img.shields.io/badge/Prometheus-E6522C.svg?logo=prometheus&logoColor=white" alt="Prometheus" />
+    <img src="https://img.shields.io/badge/Grafana-F46800.svg?logo=grafana&logoColor=white" alt="Grafana" />
+    <img src="https://img.shields.io/badge/CI%2FCD-GitHub_Actions-2088FF.svg?logo=githubactions&logoColor=white" alt="GitHub Actions" />
+  </p>
+</div>
+
+---
+
+## 🚀 Overview
+
+This repository is the operational core of a larger microservice-based architecture dedicated to **Machine Learning Release Engineering**. While other repositories in our organization handle the actual model training, backend services, and frontend development, this repository ties them all together into a robust, production-ready system.
+
+> 💡 **The Core Engineering:** *Developed and operationalised a sentiment analysis pipeline using Kubernetes for orchestration. Implemented a full observability stack with Prometheus and Grafana for real-time model performance monitoring in production. Practiced end-to-end MLOps, including automated retraining triggers, model versioning, and CI/CD integration.*
+
+## ⚙️ The Infrastructure (How It Works)
+
+Managing a distributed ML system requires robust infrastructure. This repository utilizes an Infrastructure-as-Code (IaC) and declarative configuration approach to handle the entire deployment lifecycle:
+
+* 🏗️ **Infrastructure Provisioning:** Uses **Ansible** and Vagrant to automatically provision and configure the underlying nodes and networking.
+* 🛳️ **Kubernetes Orchestration:** Contains the master **Helm Chart** (`remla-chart`) that seamlessly deploys and connects the independent microservices: the frontend, the app service, and the ML model service.
+* 📊 **Production Observability:** A complete monitoring stack built with **Prometheus** (via ServiceMonitors) and **Grafana**. It tracks not just system health, but *model performance* (e.g., data drift, prediction latency, accuracy drops) in real-time.
+* 🚦 **Traffic & Reliability:** Incorporates **Istio** for advanced network routing and Rate Limiting to ensure the model APIs remain stable under heavy load.
+* 🔄 **Continuous Deployment:** Integrated with GitHub Actions to automate the release process, ensuring that new model versions and service updates are safely rolled out to the Kubernetes cluster.
+
+---
+
 # Operation
 
 This repository contains the operational configuration to run our complete application stack, including deployment files and documentation. The list below links to the specific, stable versions of each microservice and library that constitute the current deployment.
